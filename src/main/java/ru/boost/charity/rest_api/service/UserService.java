@@ -48,7 +48,9 @@ public class UserService {
     }
 
     public void deleteUserById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        userRepository.deleteById(user.getId());
+        User user = userRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
+        user.setActive(false);
+        userRepository.save(user);
     }
 }
