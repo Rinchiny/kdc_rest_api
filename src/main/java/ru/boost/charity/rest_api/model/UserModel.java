@@ -8,20 +8,28 @@ import java.util.Date;
 
 @Data
 @Entity
-public class UploadedFile {
+public class UserModel {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private Long taskId;
+    private String firstName;
 
     @NotNull
-    private Long userId;
+    private String lastName;
 
     @NotNull
-    private byte[] value;
+    private String email;
+
+    @NotNull
+    private String password;
+
+    private byte[] avatar;
+
+    @NotNull
+    private Long roleId;
 
     @NotNull
     private Date createDate;
@@ -35,4 +43,5 @@ public class UploadedFile {
     void createdAt() {
         this.createDate = new Date();
     }
+
 }

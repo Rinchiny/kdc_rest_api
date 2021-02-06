@@ -2,20 +2,19 @@ package ru.boost.charity.rest_api.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-@Entity
-public class Task {
+public class TaskModel {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @NotNull
     private String name;
+
+    @NotNull
+    private String description;
 
     private String location;
 
@@ -24,10 +23,8 @@ public class Task {
     @NotNull
     private Long taskTypeId;
 
-    @NotNull
     private Long taskStatusId;
 
-    @NotNull
     private Long parentTaskId;
 
     @NotNull
@@ -37,18 +34,11 @@ public class Task {
 
     private Long executorId;
 
-    @NotNull
     private Date createDate;
 
     private Date updateDate;
 
     private Date expirationDate;
 
-    @NotNull
     private boolean isActive;
-
-    @PrePersist
-    void createdAt() {
-        this.createDate = new Date();
-    }
 }
