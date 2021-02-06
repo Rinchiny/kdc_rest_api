@@ -2,12 +2,10 @@ package ru.boost.charity.rest_api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.boost.charity.rest_api.entity.User;
 import ru.boost.charity.rest_api.model.UserModel;
 import ru.boost.charity.rest_api.repository.UserRepository;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
