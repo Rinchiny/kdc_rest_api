@@ -14,4 +14,9 @@ public interface UserConverter {
             @Mapping(target = "roleId", source = "role.id")
     })
     UserModel entityToModel(User user);
+
+    @Mappings({
+            @Mapping(target = "role.id", source = "roleId")
+    })
+    User modelToEntity(UserModel userModel);
 }
