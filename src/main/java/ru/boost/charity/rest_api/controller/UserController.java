@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.boost.charity.rest_api.model.UserModel;
 import ru.boost.charity.rest_api.service.UserService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/rest/user")
 @RequiredArgsConstructor
@@ -20,5 +22,10 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserModel> getUserById(@PathVariable("id") Long userId) {
         return new ResponseEntity<>(userService.getUserById(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<UserModel>> getAllUsers() {
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
 }
