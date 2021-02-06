@@ -1,11 +1,16 @@
 package ru.boost.charity.rest_api.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TaskModel {
 
     private Long id;
@@ -34,11 +39,11 @@ public class TaskModel {
 
     private Long executorId;
 
-    private Date createDate;
+    private LocalDateTime createDate;
 
-    private Date updateDate;
+    private LocalDateTime updateDate;
 
-    private Date expirationDate;
+    private LocalDateTime expirationDate;
 
     private boolean isActive;
 }
