@@ -11,7 +11,7 @@ import ru.boost.charity.rest_api.model.User;
 @Controller
 @RequestMapping("/rest/user")
 @RequiredArgsConstructor
-public class UserContoller {
+public class UserController {
 
     private final UserByIdConverter converter;
 
