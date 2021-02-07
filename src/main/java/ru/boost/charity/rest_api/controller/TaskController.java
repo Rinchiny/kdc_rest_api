@@ -50,4 +50,9 @@ public class TaskController {
     public ResponseEntity<List<TaskModel>> getTasksByLocation(@PathVariable String location) {
         return new ResponseEntity<>(taskService.getTasksByLocation(location), HttpStatus.OK);
     }
+
+    @GetMapping("/type/{title}")
+    public ResponseEntity<List<TaskModel>> getTasksByTypeTitle(@PathVariable String title) {
+        return new ResponseEntity<>(taskService.getAllTasksByTypeTitle(title), HttpStatus.OK);
+    }
 }
