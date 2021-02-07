@@ -26,12 +26,13 @@ public class TaskController {
 
     }
 
-    @GetMapping("/{status}")
-    public ResponseEntity<List<TaskModel>> getAllTasksByStatus(@PathVariable String status) {
-        return new ResponseEntity<>(List.of(new TaskModel(
+    @GetMapping("/{title}")
+    public ResponseEntity<List<TaskModel>> getAllTasksByTitle(@PathVariable String title) {
+        return new ResponseEntity<>(taskService.getAllTasksByStatus(title), HttpStatus.OK);
+        /*return new ResponseEntity<>(List.of(new TaskModel(
                 1L, "Имя №1", status,
                 "Локация №1", "Коммент №1", 1L, 1L,
                 null, 1L, null, null, LocalDateTime.now(), null, null, true
-        )), HttpStatus.OK);
+        )), HttpStatus.OK);*/
     }
 }
