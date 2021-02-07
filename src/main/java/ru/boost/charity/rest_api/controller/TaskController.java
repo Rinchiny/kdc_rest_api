@@ -29,4 +29,14 @@ public class TaskController {
     public ResponseEntity<List<TaskModel>> getAllTasksByTitle(@PathVariable String title) {
         return new ResponseEntity<>(taskService.getAllTasksByTitle(title), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TaskModel> getTaskById(@PathVariable Long taskId) {
+        return new ResponseEntity<>(taskService.getTaskById(taskId), HttpStatus.OK);
+    }
+
+    @GetMapping("/{reporterId")
+    public ResponseEntity<List<TaskModel>> getTasksByReporterId(@PathVariable Long reporterId) {
+        return new ResponseEntity<>(taskService.getTasksByReporterId(reporterId), HttpStatus.OK);
+    }
 }

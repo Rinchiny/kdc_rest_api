@@ -4,10 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.boost.charity.rest_api.entity.Task;
 import ru.boost.charity.rest_api.entity.TaskStatus;
+import ru.boost.charity.rest_api.entity.User;
 import ru.boost.charity.rest_api.model.TaskModel;
 import ru.boost.charity.rest_api.repository.TaskRepository;
 import ru.boost.charity.rest_api.repository.TaskStatusRepository;
+import ru.boost.charity.rest_api.repository.UserRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -17,6 +20,7 @@ import java.util.stream.StreamSupport;
 public class TaskService {
 
     private final TaskConverter taskConverter;
+    private final UserRepository userRepository;
     private final TaskRepository taskRepository;
     private final TaskStatusRepository taskStatusRepository;
 
@@ -30,6 +34,19 @@ public class TaskService {
     public List<TaskModel> getAllTasksByTitle(String title) {
         TaskStatus taskStatus = taskStatusRepository.findByTitle(title);
         Iterable<Task> tasks = taskRepository.findAllByTaskStatus(taskStatus);
+        return StreamSupport.stream(tasks.spliterator(), false)
+                .map(taskConverter::entityToModel)
+                .collect(Collectors.toList());
+    }
+
+    public TaskModel getTaskById(Long taskId) {
+        return taskConverter.entityToModel(taskRepository.findById(taskId)
+                .orElseThrow(EntityNotFoundException::new));
+    }
+
+    public List<TaskModel> getTasksByReporterId(Long reporterId) {
+        User reporter = userRepository.findById(reporterId).orElseThrow(EntityNotFoundException::new);
+        Iterable<Task> tasks = taskRepository.findAllByReporter(reporter);
         return StreamSupport.stream(tasks.spliterator(), false)
                 .map(taskConverter::entityToModel)
                 .collect(Collectors.toList());
