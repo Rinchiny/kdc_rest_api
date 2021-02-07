@@ -28,7 +28,7 @@ public class TaskController {
 
     @GetMapping("/{title}")
     public ResponseEntity<List<TaskModel>> getAllTasksByTitle(@PathVariable String title) {
-        return new ResponseEntity<>(taskService.getAllTasksByStatus(title), HttpStatus.OK);
+        return new ResponseEntity<>(taskService.getAllTasksByTitle(title), HttpStatus.OK);
         /*return new ResponseEntity<>(List.of(new TaskModel(
                 1L, "Имя №1", status,
                 "Локация №1", "Коммент №1", 1L, 1L,

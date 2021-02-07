@@ -29,7 +29,7 @@ public class TaskService {
                 .collect(Collectors.toList());
     }
 
-    public List<TaskModel> getAllTasksByStatus(String title) {
+    public List<TaskModel> getAllTasksByTitle(String title) {
         TaskStatus taskStatus = taskStatusRepository.findByTitle(title);
         Iterable<Task> tasks = taskRepository.findAllByTaskStatus(taskStatus);
         return StreamSupport.stream(tasks.spliterator(), false)
