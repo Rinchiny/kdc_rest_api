@@ -59,4 +59,11 @@ public class TaskService {
                 .map(taskConverter::entityToModel)
                 .collect(Collectors.toList());
     }
+
+    public List<TaskModel> getTasksByLocation(String location) {
+        Iterable<Task> tasks = taskRepository.findAllByLocation(location);
+        return StreamSupport.stream(tasks.spliterator(), false)
+                .map(taskConverter::entityToModel)
+                .collect(Collectors.toList());
+    }
 }
