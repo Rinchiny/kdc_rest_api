@@ -12,7 +12,7 @@ import ru.boost.charity.rest_api.service.TaskService;
 import java.util.List;
 
 @Slf4j
-@Controller
+@RestController
 @RequestMapping("/rest/task")
 @RequiredArgsConstructor
 public class TaskController {
@@ -60,13 +60,13 @@ public class TaskController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Void> createTask(TaskModel taskModel) {
+    public ResponseEntity<Void> createTask(@RequestBody TaskModel taskModel) {
         taskService.createNewTask(taskModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateTaskById(@PathVariable("id") Long taskId, TaskModel taskModel) {
+    public ResponseEntity<Void> updateTaskById(@PathVariable("id") Long taskId, @RequestBody TaskModel taskModel) {
         taskService.updateTaskById(taskId, taskModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
