@@ -19,5 +19,15 @@ public interface TaskConverter {
     })
     TaskModel entityToModel(Task task);
 
+    @Mappings({
+            @Mapping(target = "taskType.id", source = "taskTypeId"),
+            @Mapping(target = "taskStatus.id", source = "taskStatusId"),
+            @Mapping(target = "parentTask.id", source = "parentTaskId"),
+            @Mapping(target = "reporter.id", source = "reporterId"),
+            @Mapping(target = "moderator.id", source = "moderatorId"),
+            @Mapping(target = "executor.id", source = "executorId")
+    })
+    Task modelToEntity(TaskModel taskModel);
+
 
 }

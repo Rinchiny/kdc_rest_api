@@ -5,9 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.boost.charity.rest_api.model.TaskModel;
 import ru.boost.charity.rest_api.service.TaskService;
 
@@ -59,5 +57,23 @@ public class TaskController {
     @GetMapping("/parentTask/{id}")
     public ResponseEntity<List<TaskModel>> getTasksByParentTask(@PathVariable Long id) {
         return new ResponseEntity<>(taskService.getTasksByParentTask(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<Void> createTask(TaskModel taskModel) {
+        taskService.createNewTask(taskModel);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateTaskById(@PathVariable("id") Long taskId, TaskModel taskModel) {
+        taskService.updateTaskById(taskId, taskModel);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTask(@PathVariable("id") Long taskId) {
+        taskService.deleteTaskById(taskId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
