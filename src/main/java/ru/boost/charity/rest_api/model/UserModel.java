@@ -7,11 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-@Entity
 public class UserModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -38,10 +35,4 @@ public class UserModel {
 
     @NotNull
     private boolean isActive;
-
-    @PrePersist
-    void createdAt() {
-        this.createDate = new Date();
-    }
-
 }
