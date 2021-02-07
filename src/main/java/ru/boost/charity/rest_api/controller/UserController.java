@@ -33,13 +33,13 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Void> updateUserById(@PathVariable("id") Long userId, UserModel userModel) {
         userService.updateUserById(userId, userModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping ("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable("id") Long userId) {
         userService.deleteUserById(userId);
         return new ResponseEntity<>(HttpStatus.OK);
