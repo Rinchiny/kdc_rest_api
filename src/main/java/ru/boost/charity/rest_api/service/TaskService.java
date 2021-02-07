@@ -77,4 +77,12 @@ public class TaskService {
                 .map(taskConverter::entityToModel)
                 .collect(Collectors.toList());
     }
+
+    public List<TaskModel> getTasksByParentTask(Long id) {
+        Task parentTask = taskRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        Iterable<Task> tasks = taskRepository.findAllByParentTask(parentTask);
+        return StreamSupport.stream(tasks.spliterator(), false)
+                .map(taskConverter::entityToModel)
+                .collect(Collectors.toList());
+    }
 }

@@ -55,4 +55,9 @@ public class TaskController {
     public ResponseEntity<List<TaskModel>> getTasksByTypeTitle(@PathVariable String title) {
         return new ResponseEntity<>(taskService.getAllTasksByTypeTitle(title), HttpStatus.OK);
     }
+
+    @GetMapping("/parentTask/{id}")
+    public ResponseEntity<List<TaskModel>> getTasksByParentTask(@PathVariable Long id) {
+        return new ResponseEntity<>(taskService.getTasksByParentTask(id), HttpStatus.OK);
+    }
 }

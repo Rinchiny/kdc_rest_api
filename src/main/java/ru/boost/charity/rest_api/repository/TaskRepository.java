@@ -17,4 +17,6 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
     Iterable<Task> findAllByLocation (String location);
 
     Iterable<Task> findAllByTaskType (TaskType type);
+
+    Iterable<Task> findAllByParentTask (Task task);
 }
