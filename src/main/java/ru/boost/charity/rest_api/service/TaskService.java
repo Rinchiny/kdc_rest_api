@@ -4,9 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.boost.charity.rest_api.entity.Task;
 import ru.boost.charity.rest_api.entity.TaskStatus;
-import ru.boost.charity.rest_api.entity.User;
 import ru.boost.charity.rest_api.model.TaskModel;
-import ru.boost.charity.rest_api.model.UserModel;
 import ru.boost.charity.rest_api.repository.TaskRepository;
 import ru.boost.charity.rest_api.repository.TaskStatusRepository;
 

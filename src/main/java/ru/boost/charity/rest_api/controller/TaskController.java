@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.boost.charity.rest_api.model.TaskModel;
 import ru.boost.charity.rest_api.service.TaskService;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -29,10 +28,5 @@ public class TaskController {
     @GetMapping("/{title}")
     public ResponseEntity<List<TaskModel>> getAllTasksByTitle(@PathVariable String title) {
         return new ResponseEntity<>(taskService.getAllTasksByTitle(title), HttpStatus.OK);
-        /*return new ResponseEntity<>(List.of(new TaskModel(
-                1L, "Имя №1", status,
-                "Локация №1", "Коммент №1", 1L, 1L,
-                null, 1L, null, null, LocalDateTime.now(), null, null, true
-        )), HttpStatus.OK);*/
     }
 }

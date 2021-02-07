@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -36,19 +36,19 @@ public class Task {
     private TaskStatus taskStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="parent_task_id")
+    @JoinColumn(name = "parent_task_id")
     private Task parentTask;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="reporter_id")
+    @JoinColumn(name = "reporter_id")
     private User reporter;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="moderator_id")
+    @JoinColumn(name = "moderator_id")
     private User moderator;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="executor_id")
+    @JoinColumn(name = "executor_id")
     private User executor;
 
     @Column(name = "create_date")

@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public List<UserModel> getAllUsers() {
-        Iterable<User> users =  userRepository.findAll();
+        Iterable<User> users = userRepository.findAll();
         return StreamSupport.stream(users.spliterator(), false)
                 .map(userConverter::entityToModel)
                 .collect(Collectors.toList());
