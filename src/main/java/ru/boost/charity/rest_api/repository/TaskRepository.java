@@ -12,4 +12,6 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
     List<Task> findAllByTaskStatus (TaskStatus status);
 
     List<Task> findAllByReporter (User reporter);
+
+    List<Task> findAllByExecutor (User executor);
 }

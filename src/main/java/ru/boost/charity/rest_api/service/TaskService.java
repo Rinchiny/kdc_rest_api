@@ -51,4 +51,12 @@ public class TaskService {
                 .map(taskConverter::entityToModel)
                 .collect(Collectors.toList());
     }
+
+    public List<TaskModel> getTasksByExecutorId(Long executorId) {
+        User executor = userRepository.findById(executorId).orElseThrow(EntityNotFoundException::new);
+        Iterable<Task> tasks = taskRepository.findAllByExecutor(executor);
+        return StreamSupport.stream(tasks.spliterator(), false)
+                .map(taskConverter::entityToModel)
+                .collect(Collectors.toList());
+    }
 }

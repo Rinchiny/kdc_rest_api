@@ -32,12 +32,17 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TaskModel> getTaskById(@PathVariable Long taskId) {
-        return new ResponseEntity<>(taskService.getTaskById(taskId), HttpStatus.OK);
+    public ResponseEntity<TaskModel> getTaskById(@PathVariable Long id) {
+        return new ResponseEntity<>(taskService.getTaskById(id), HttpStatus.OK);
     }
 
     @GetMapping("/reporter/{id}")
-    public ResponseEntity<List<TaskModel>> getTasksByReporterId(@PathVariable Long reporterId) {
-        return new ResponseEntity<>(taskService.getTasksByReporterId(reporterId), HttpStatus.OK);
+    public ResponseEntity<List<TaskModel>> getTasksByReporterId(@PathVariable Long id) {
+        return new ResponseEntity<>(taskService.getTasksByReporterId(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/executor/{id}")
+    public ResponseEntity<List<TaskModel>> getTasksByExecutorId(@PathVariable Long id) {
+        return new ResponseEntity<>(taskService.getTasksByExecutorId(id), HttpStatus.OK);
     }
 }
