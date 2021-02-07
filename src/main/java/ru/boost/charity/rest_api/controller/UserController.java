@@ -10,7 +10,7 @@ import ru.boost.charity.rest_api.service.UserService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/rest/user")
 @RequiredArgsConstructor
 public class UserController {
@@ -28,13 +28,13 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Void> createNewUser(UserModel userModel) {
+    public ResponseEntity<Void> createNewUser(@RequestBody UserModel userModel) {
         userService.createNewUser(userModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateUserById(@PathVariable("id") Long userId, UserModel userModel) {
+    public ResponseEntity<Void> updateUserById(@PathVariable("id") Long userId, @RequestBody UserModel userModel) {
         userService.updateUserById(userId, userModel);
         return new ResponseEntity<>(HttpStatus.OK);
     }
