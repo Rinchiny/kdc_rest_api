@@ -36,7 +36,7 @@ public class TaskController {
         return new ResponseEntity<>(taskService.getTaskById(taskId), HttpStatus.OK);
     }
 
-    @GetMapping("/{reporterId")
+    @GetMapping("/reporter/{id}")
     public ResponseEntity<List<TaskModel>> getTasksByReporterId(@PathVariable Long reporterId) {
         return new ResponseEntity<>(taskService.getTasksByReporterId(reporterId), HttpStatus.OK);
     }
