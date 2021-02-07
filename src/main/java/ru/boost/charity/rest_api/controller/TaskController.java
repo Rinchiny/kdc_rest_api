@@ -46,7 +46,7 @@ public class TaskController {
         return new ResponseEntity<>(taskService.getTasksByExecutorId(id), HttpStatus.OK);
     }
 
-    @GetMapping("/{location}")
+    @GetMapping("/location/{location}")
     public ResponseEntity<List<TaskModel>> getTasksByLocation(@PathVariable String location) {
         return new ResponseEntity<>(taskService.getTasksByLocation(location), HttpStatus.OK);
     }
