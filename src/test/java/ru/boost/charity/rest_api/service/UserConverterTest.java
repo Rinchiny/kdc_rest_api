@@ -4,36 +4,31 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.boost.charity.rest_api.MapperAwareTest;
 import ru.boost.charity.rest_api.entity.Task;
+import ru.boost.charity.rest_api.entity.User;
 import ru.boost.charity.rest_api.model.TaskModel;
+import ru.boost.charity.rest_api.model.UserModel;
 
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
-class TaskConverterTest extends MapperAwareTest {
+class UserConverterTest extends MapperAwareTest {
 
     @Autowired
-    TaskConverter taskConverter;
+    UserConverter userConverter;
 
     @Test
     void entityToModel() throws IOException {
         assertThat(
-                taskConverter.entityToModel(
-                        deserialize("task", Task.class)
+                userConverter.entityToModel(
+                        deserialize("task", User.class)
                 )).isEqualTo(
-                        deserialize("taskModel", TaskModel.class)
+                deserialize("taskModel", UserModel.class)
         );
     }
 
     @Test
-    void modelToEntity() throws IOException {
-        assertThat(
-                taskConverter.modelToEntity(
-                        deserialize("taskModel", TaskModel.class)
-                )).isEqualTo(
-                        deserialize("task", Task.class)
-        );
+    void modelToEntity() {
     }
-
-
 }

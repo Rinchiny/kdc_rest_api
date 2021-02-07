@@ -22,6 +22,4 @@ public class FileUploadController {
     public ResponseEntity<byte[]> getFile(@PathVariable Long id) {
         return new ResponseEntity<>(fileUploadService.getFileById(id).getValue(), HttpStatus.OK);
     }
-
-    //public ResponseEntity<> getFilesByUserId
 }
