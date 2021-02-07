@@ -1,0 +1,17 @@
+{
+  "id":5,
+  "name":"Имя №4",
+  "description":"Описание 4",
+  "location":"location",
+  "comment":"Коммент №4",
+  "taskTypeId":1,
+  "taskStatusId":10,
+  "parentTaskId":null,
+  "reporterId":1,
+  "moderatorId":null,
+  "executorId":null,
+  "createDate":"2021-02-07T07:52:01",
+  "updateDate":null,
+  "expirationDate":null,
+  "active":true
+}

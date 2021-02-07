@@ -1,0 +1,44 @@
+{
+  "id":5,
+  "name":"Имя №4",
+  "description":"Описание 4",
+  "location":"location",
+  "comment":"Коммент №4",
+  "taskType": {
+    "id": 1,
+    "name": "Волонтерские",
+    "title": "volunteer",
+    "description": "Волонтерские задачи",
+    "isActive": true
+  },
+  "taskStatus": {
+    "id": 10,
+    "name": "Новая задача",
+    "title": "new",
+    "description": "Новая задача, не прошедшая модерацию",
+    "isActive": true
+  },
+  "parentTaskId":null,
+  "reporter": {
+    "id": 1,
+    "firstName": "ivan",
+    "lastName": "ivanov",
+    "email": "as",
+    "password": "as",
+    "avatar": null,
+    "role": {
+      "id": 1,
+      "name": "Создатель задачи",
+      "title": "reporter",
+      "description": "Роль пользователя, создающего задания",
+      "isActive": true
+    },
+    "isActive": true
+  },
+  "moderator":null,
+  "executor":null,
+  "createDate":"2021-02-07T07:52:01",
+  "updateDate":null,
+  "expirationDate":null,
+  "active":true
+}
