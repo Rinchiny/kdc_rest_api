@@ -5,35 +5,16 @@
   "location":"location",
   "comment":"Коммент №4",
   "taskType": {
-    "id": 1,
-    "name": "Волонтерские",
-    "title": "volunteer",
-    "description": "Волонтерские задачи",
-    "isActive": true
+    "id": 1
   },
   "taskStatus": {
-    "id": 10,
-    "name": "Новая задача",
-    "title": "new",
-    "description": "Новая задача, не прошедшая модерацию",
-    "isActive": true
+    "id": 10
   },
-  "parentTaskId":null,
+  "parentTaskId": {
+    "id": null
+  },
   "reporter": {
-    "id": 1,
-    "firstName": "ivan",
-    "lastName": "ivanov",
-    "email": "as",
-    "password": "as",
-    "avatar": null,
-    "role": {
-      "id": 1,
-      "name": "Создатель задачи",
-      "title": "reporter",
-      "description": "Роль пользователя, создающего задания",
-      "isActive": true
-    },
-    "isActive": true
+    "id": 1
   },
   "moderator":null,
   "executor":null,

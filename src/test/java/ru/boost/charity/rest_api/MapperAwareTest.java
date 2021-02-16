@@ -1,17 +1,12 @@
 package ru.boost.charity.rest_api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
 import java.util.List;
 
-@SpringBootTest
-@ExtendWith(SpringExtension.class)
-public abstract class MapperAwareTest {
+public abstract class MapperAwareTest extends ContextAwareTest {
     @Autowired
     protected ObjectMapper mapper;
 
